@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Accordion - Default functionality</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <style>
+        #accordion {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+        }
+
+        #change,#toggle {
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        $(function () {
+            var icons = {
+                header: "ui-icon-circle-arrow-e",
+                activeHeader: "ui-icon-circle-arrow-s"
+            };
+
+            var icons1 = {
+                header: "ui-icon-plus",
+                activeHeader: "ui-icon-minus"
+            };
+            $("#accordion").accordion({
+                collapsible: true,
+                icons: icons
+            });
+            var lastIcon = $("#accordion").accordion("option", "icons");  // to store last visible icon
+
+            // to change icons
+            $("#change").button().on("click", function () {
+                var currentIcons = $("#accordion").accordion("option", "icons");
+
+                if (currentIcons.header === icons.header) {
+                    $("#accordion").accordion("option", "icons", icons1);
+                } else {
+                    $("#accordion").accordion("option", "icons", icons);
+                }
+                lastIcon = $("#accordion").accordion("option", "icons");
+            });
+
+            // to toggle icons
+            $("#toggle").button().on("click", function () {
+                var currentIcons = $("#accordion").accordion("option", "icons");
+                $("#accordion").accordion("option", "icons", currentIcons ? null : lastIcon);
+                $(this).find("span").html(currentIcons ? "Show Icons" : "Hide Icons");
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="accordion">
+        <h3>Section 1</h3>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptates magni accusantium a nemo
+                consequatur aliquam mollitia voluptate.
+                Itaque placeat minus fugit reprehenderit eos aspernatur praesentium, harum culpa voluptatum nostrum.
+            </p>
+        </div>
+        <h3>Section 2</h3>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptates magni accusantium a nemo
+                consequatur aliquam mollitia voluptate.
+                Itaque placeat minus fugit reprehenderit eos aspernatur praesentium, harum culpa voluptatum nostrum.
+            </p>
+        </div>
+        <h3>Section 3</h3>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptates magni accusantium a nemo
+                consequatur aliquam mollitia voluptate.
+                Itaque placeat minus fugit reprehenderit eos aspernatur praesentium, harum culpa voluptatum nostrum.
+            </p>
+            <ul>
+                <li>List item one</li>
+                <li>List item two</li>
+                <li>List item three</li>
+            </ul>
+        </div>
+        <h3>Section 4</h3>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptates magni accusantium a nemo
+                consequatur aliquam mollitia voluptate.
+                Itaque placeat minus fugit reprehenderit eos aspernatur praesentium, harum culpa voluptatum nostrum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptates magni accusantium a nemo
+                consequatur aliquam mollitia voluptate.
+                Itaque placeat minus fugit reprehenderit eos aspernatur praesentium, harum culpa voluptatum nostrum.
+            </p>
+        </div>
+    </div>
+
+    <button type="button" id="change">Change icons </button>
+    <button type="button" id="toggle"><span>Hide icons</span></button>
+
+
+</body>
+
+</html>
