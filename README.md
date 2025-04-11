@@ -55,7 +55,7 @@ git clone https://github.com/your-username/your-repo-name.git
 
 - Developed By: Riyaz  
 - Instagram: [@_riyaz-7486]([https://instagram.com/your_instagram](https://www.instagram.com/_riyaz_7486?igsh=cmVqZ3hjbGZrd3pp))  
-- Linkedin: [@yriyazahmed-mmin](www.linkedin.com/in/riyazahmed-momin)  
+- Linkedin: riyazahmed-momin(www.linkedin.com/in/riyazahmed-momin)  
 
 ---
 
